@@ -2,7 +2,7 @@ import { ContainerScroll } from "@/components/global/container-scroll-animation"
 import Navbar from "../components/global/navbar";
 import { Button } from "@/components/ui/button";
 import { InfiniteMovingCards } from "@/components/global/infinite-moving-cards";
-import { clients, products } from "@/lib/contants";
+import { clients, products } from "@/lib";
 import { HeroParallax } from "@/components/global/connect-parallax";
 
 export default function Home() {
