@@ -14,8 +14,6 @@ import {
 } from '@/components/ui/card'
 import clsx from 'clsx'
 
-type Props = {}
-
 const EditorCanvasCardSingle = ({ data }: { data: EditorCanvasCardType }) => {
   const { dispatch, state } = useEditor()
   const nodeId = useNodeId()
