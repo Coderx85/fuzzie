@@ -22,15 +22,6 @@ type Props = {
 
 const EditorCanvasSidebar = ({ nodes }: Props) => {
 
-//   useEffect(() => {
-//     if (nodeConnection.slackNode.slackAccessToken) {
-//       fetchBotSlackChannels(
-//         nodeConnection.slackNode.slackAccessToken,
-//         setSlackChannels
-//       )
-//     }
-//   }, [nodeConnection])
-
   return (
     <aside>
       <Tabs

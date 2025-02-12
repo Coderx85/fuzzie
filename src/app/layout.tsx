@@ -4,6 +4,7 @@ import './globals.css'
 import { ThemeProvider } from '@/providers/theme-provider'
 import { Toaster } from '@/components/ui/sonner'
 import ModalProvider from '@/providers/modal-provider'
+import { ClerkProvider } from '@clerk/nextjs'
 
 const font = DM_Sans({ subsets: ['latin'] })
 
@@ -19,6 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <>
+      <ClerkProvider>
       <html lang="en">
         <body className={font.className}>
           <ThemeProvider
@@ -27,13 +29,14 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <ModalProvider>
-              {children}
-              <Toaster />
-            </ModalProvider>
+              <ModalProvider>
+                {children}
+                <Toaster />
+              </ModalProvider>
           </ThemeProvider>
         </body>
       </html>
+      </ClerkProvider>
     </>
   )
 }

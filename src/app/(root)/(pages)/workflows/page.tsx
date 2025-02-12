@@ -1,10 +1,16 @@
 import React from 'react'
+import Workflows from './_components'
 
-const Workflows = () => {
+const Page = () => {
   return (
     <> 
+      <Workflows />
+      <Workflows />
+      <Workflows />
+      <Workflows />
+      <Workflows />
     </>
   )
 }
 
-export default Workflows
+export default Page

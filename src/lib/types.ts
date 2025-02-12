@@ -11,10 +11,10 @@ export const WorkflowFormSchema = z.object({
   description: z.string().min(1, 'Required'),
 })
 
-export type ConnectionTypes = 'Google Drive' | 'Notion' | 'Slack' | 'Discord'
+export type ConnectionTypesArray = 'Google Drive' | 'Notion' | 'Slack' | 'Discord'
 
-export type Connection = {
-  title: ConnectionTypes
+export type ConnectionArray = {
+  title: ConnectionTypesArray
   description: string
   image: string
   connectionKey: keyof ConnectionProviderProps
@@ -41,7 +41,7 @@ export type EditorCanvasCardType = {
   description: string
   completed: boolean
   current: boolean
-  metadata: any
+  metadata: unknown
   type: EditorCanvasTypes
 }
 
