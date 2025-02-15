@@ -8,7 +8,6 @@ import {
   HardDrive,
   Mail,
   MousePointerClickIcon,
-  Plus,
   Slack,
   Timer,
   Webhook,

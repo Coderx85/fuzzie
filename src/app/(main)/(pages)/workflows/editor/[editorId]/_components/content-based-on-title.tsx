@@ -11,11 +11,9 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
-import { onContentChange } from '@/lib/editor-utils'
 import GoogleFileDetails from './google-file-details'
 import GoogleDriveFiles from './google-drive-files'
 import ActionButton from './action-button'
-import { getFileMetaData } from '@/app/(main)/(pages)/connections/_actions/google-connection'
 import axios from 'axios'
 import { toast } from 'sonner'
 
@@ -66,7 +64,7 @@ const ContentBasedOnTitle = ({
       }
     }
     reqGoogle()
-  }, [])
+  }, [setFile])
 
   // @ts-ignore
   const nodeConnectionType: any = nodeConnection[nodeMapper[title]]
@@ -100,12 +98,6 @@ const ContentBasedOnTitle = ({
         )}
         <div className="flex flex-col gap-3 px-6 py-3 pb-20">
           <p>{title === 'Notion' ? 'Values to be stored' : 'Message'}</p>
-
-          <Input
-            type="text"
-            value={nodeConnectionType.content}
-            onChange={(event) => onContentChange(nodeConnection, title, event)}
-          />
 
           {JSON.stringify(file) !== '{}' && title !== 'Google Drive' && (
             <Card className="w-full">
