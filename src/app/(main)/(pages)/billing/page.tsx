@@ -1,0 +1,39 @@
+import { currentUser } from '@clerk/nextjs/server'
+import { db } from '@/lib/db'
+import BillingDashboard from './_components/billing-dashboard'
+
+type Props = {
+  searchParams?: { [key: string]: string | undefined }
+}
+
+const Billing = async (props: Props) => {
+  const { session_id } = props.searchParams ?? {
+    session_id: '',
+  }
+  if (session_id) {
+    //WIP to add razorpay
+    }
+
+    const user = await currentUser()
+    if (user) {
+      await db.user.update({
+        where: {
+          clerkId: user.id,
+        },
+        data: {
+          //To-Do
+        },
+      })
+    }
+
+  return (
+    <div className="flex flex-col gap-4">
+      <h1 className="sticky top-0 z-[10] flex items-center justify-between border-b bg-background/50 p-6 text-4xl backdrop-blur-lg">
+        <span>Billing</span>
+      </h1>
+      <BillingDashboard />
+    </div>
+  )
+}
+
+export default Billing
