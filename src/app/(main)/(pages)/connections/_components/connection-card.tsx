@@ -1,4 +1,4 @@
-import { ConnectionTypes } from '@/lib/types'
+import { ConnectionTypes } from '@/lib'
 import React from 'react'
 import {
   Card,

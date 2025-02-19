@@ -16,14 +16,17 @@ export const getFileMetaData = async () => {
     return { message: "User not found" };
   }
 
-  const clerkResponse = await clerk.users.getUserOauthAccessToken(
-    userId,
-    "google"
-  );
+  
+  const clerk = await clerkClient()
+
+  const provider = 'google'
+
+  const clerkResponse = await clerk.users.getUserOauthAccessToken(userId, provider)
+  console.log('Clerk Response:', clerkResponse)
 
   if (!clerkResponse) return new Error("No clerk response found");
 
-  const accessToken = clerkResponse[0].token;
+  const accessToken = clerkResponse.data[0].token;
   console.log(accessToken);
   
   if (!accessToken) return new Error("No access token found");
