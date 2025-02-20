@@ -5,7 +5,7 @@ import Home from '@/components/icons/home'
 import Payment from '@/components/icons/payment'
 import Settings from '@/components/icons/settings'
 import Workflows from '@/components/icons/workflows'
-import { Connection } from './types'
+import { Connection } from './'
 
 export const clients = [...new Array(10)].map((client, index) => ({
   href: `/${index + 1}.png`,
