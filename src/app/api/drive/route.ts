@@ -17,16 +17,15 @@ export async function GET() {
   }
 
   try {
-    const clerkResponse = await clerkClient.users.getUserOauthAccessToken(
-      userId,
-      'google'
-    );
+    
+    const clerk = await clerkClient()
 
-    if (!clerkResponse || clerkResponse.length === 0) {
-      return NextResponse.json({ message: 'No OAuth access token found' }, { status: 404 });
-    }
+    const provider = 'google'
 
-    const accessToken = clerkResponse[0].token || '';
+    const clerkResponse = await clerk.users.getUserOauthAccessToken(userId, provider)
+    console.log('Clerk Response:', clerkResponse)
+
+    const accessToken = clerkResponse.data[0].token || '';
     console.log('Access Token:', accessToken);
 
     oauth2Client.setCredentials({
@@ -59,7 +58,7 @@ export async function GET() {
         }
       );
     }
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error fetching OAuth access token:', error);
     return NextResponse.json(
       {
