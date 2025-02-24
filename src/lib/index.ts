@@ -7,4 +7,4 @@ export { onDragStart, onNotionContent, onAddTemplateSlack, onAddTemplateDiscord,
 
 export { db } from './db';
 
-export { clients } from './constant';
+export { clients, menuOptions, EditorCanvasDefaultCardTypes } from './constant';
